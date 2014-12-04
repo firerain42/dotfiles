@@ -34,3 +34,8 @@
 [submodule ".vim/bundle/syntastic"]
         path = .vim/bundle/syntastic
         url = https://github.com/scrooloose/syntastic.git
+
+
+[submodule ".zsh/plugins/zsh-256color"]
+        path = .zsh/plugins/zsh-256color
+        url = https://github.com/chrissicool/zsh-256color.git
