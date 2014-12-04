@@ -27,10 +27,6 @@
         path = .vim/bundle/supertab
         url = https://github.com/ervandew/supertab.git
 
-[submodule ".vim/bundle/vimerl"]
-        path = .vim/bundle/vimerl
-        url = https://github.com/jimenezrick/vimerl.git
-
 [submodule ".vim/bundle/markdown"]
         path = .vim/bundle/vim-markdown
         url = https://github.com/tpope/vim-markdown.git
@@ -38,11 +34,3 @@
 [submodule ".vim/bundle/syntastic"]
         path = .vim/bundle/syntastic
         url = https://github.com/scrooloose/syntastic.git
-
-[submodule ".vim/bundle/vim-javascript-syntax"]
-        path = .vim/bundle/vim-javascript-syntax
-        url = https://github.com/jelera/vim-javascript-syntax.git
-
-[submodule ".vim/bundle/JavaScript-Indent"]
-        path = .vim/bundle/JavaScript-Indent
-        url = https://github.com/vim-scripts/JavaScript-Indent.git
