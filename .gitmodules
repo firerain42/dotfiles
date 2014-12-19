@@ -35,6 +35,10 @@
         path = .vim/bundle/syntastic
         url = https://github.com/scrooloose/syntastic.git
 
+[submodule ".vim/colors/jellybeans"]
+        path = .vim/colors/jellybeans
+        url = https://github.com/nanotech/jellybeans.vim.git
+
 
 [submodule ".zsh/plugins/zsh-256color"]
         path = .zsh/plugins/zsh-256color
