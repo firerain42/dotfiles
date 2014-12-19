@@ -8,8 +8,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" Colorscheme see https://github.com/hukl/Smyck-Color-Scheme
-color smyck
+color jellybeans
 
 " Add line numbers
 set number
