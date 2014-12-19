@@ -47,8 +47,10 @@ set hlsearch
 " Map Ctrl+l to clear highlighted searches
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-" Highlight characters behind the 80 chars margin
-:au BufWinEnter * let w:m2=matchadd('ColumnMargin', '\%>80v.\+', -1)
+" Highlight the 80 chars margin
+if exists('+colorcolumn')
+    set colorcolumn=80
+endif
 
 " Disable code folding
 set nofoldenable
