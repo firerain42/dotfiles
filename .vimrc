@@ -39,6 +39,10 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" set language for the spell checks to English
+:set spell spelllang=en_us
+:set nospell
+
 " Search related settings
 set incsearch
 set hlsearch
@@ -73,6 +77,9 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+" spell check all git commit messages
+au BufNewFile,BufRead COMMIT_EDITMSG set spell
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
