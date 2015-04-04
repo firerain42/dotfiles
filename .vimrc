@@ -28,6 +28,9 @@ set expandtab
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
 
+" highlight current line
+set cursorline
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
