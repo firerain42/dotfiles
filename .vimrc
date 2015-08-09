@@ -12,6 +12,7 @@ color jellybeans
 
 " Add line numbers
 set number
+set relativenumber
 set ruler
 
 " Set encoding
