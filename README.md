@@ -3,6 +3,6 @@ dotfiles
 
 Collection of various config files
 
-## Vim
+## Installation
 
-run ```git submodule init && git submodule update``` before starting vim
+run ```./install.sh```
