@@ -43,3 +43,6 @@
 [submodule ".zsh/plugins/zsh-256color"]
         path = .zsh/plugins/zsh-256color
         url = https://github.com/chrissicool/zsh-256color.git
+[submodule ".vim/bundle/vim-scala"]
+	path = .vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
