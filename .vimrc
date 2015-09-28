@@ -88,8 +88,6 @@ au BufNewFile,BufRead COMMIT_EDITMSG set spell
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" ctrp custom ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.eunit$',
-  \ 'file': '\.exe$\|\.so$\|\.dll\|\.beam$\|\.DS_Store$'
-  \ }
+" syntastic settings
+" let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
