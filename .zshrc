@@ -9,3 +9,13 @@ source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
 # Load and run compinit
 autoload -U compinit
 compinit -i
+
+# Load autojump
+#source /usr/share/autojump/autojump.zsh &> /dev/null
+
+# Setup variables
+export EDITOR=vim
+#export PATH=$PATH:$HOME/.bin/
+
+# Handle ssh-keys
+#eval $(keychain --eval -Q --quiet --noask)
