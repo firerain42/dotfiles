@@ -66,6 +66,11 @@ set nofoldenable
 set backupdir=~/.vimbackup
 set directory=~/.vimbackup
 
+" EasyMotion configuration
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s2)
+let g:EasyMotion_smartcase = 1
+
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
