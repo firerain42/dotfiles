@@ -54,6 +54,8 @@ set hlsearch
 " Map Ctrl+l to clear highlighted searches
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+nnoremap <silent> <F9> :TagbarOpenAutoClose<CR>
+
 " Highlight the 80 chars margin
 if exists('+colorcolumn')
     set colorcolumn=80
