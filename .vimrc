@@ -1,8 +1,29 @@
 set nocompatible
 
-" Initialize Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+Plug 'godlygeek/tabular'
+Plug 'kien/ctrlp.vim'
+Plug 'neomake/neomake'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
+Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion-s2)' }
+
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+
+if has('nvim') && has('python3')
+    Plug 'Shougo/deoplete.nvim'
+end
+call plug#end()
+
+
+
 
 " Enable syntax highlighting
 syntax on
@@ -28,8 +49,11 @@ set expandtab
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
 
-" highlight current line
+" Highlight current line
 set cursorline
+
+" Statusline
+set noshowmode
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -88,12 +112,18 @@ set directory=~/.vimbackup
 
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-s2)
 
 " Tabular configuration
 nmap <Leader>a :Tabularize /
 vmap <Leader>a :Tabularize /
+
+" deoplete configuration
+let g:deoplete#enable_at_startup = 1
+
+" Neomake configuration
+autocmd! BufWritePost,BufEnter * Neomake
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
