@@ -16,4 +16,4 @@ zstyle ':vcs_info:*' formats       ' (%F{green}%b%c%u%f)'
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 precmd () { vcs_info }
-PS1='%{$fg_bold[white]%}[%(!.%{$fg_bold[red]%}%n.%{$fg_bold[blue]%}%n)%{$fg_bold[white]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%}${vcs_info_msg_0_}%{$fg_bold[white]%}]%{$reset_color%} '
+PS1='%{$fg_bold[white]%}[%(!.%{$fg_bold[red]%}%n.%{$fg_bold[blue]%}%n)%{$fg_bold[white]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%}${vcs_info_msg_0_}%(?.. %{$fg_bold[red]%}(%?%)%{$fg_bold[white]%})%{$fg_bold[white]%}]%{$reset_color%} '
