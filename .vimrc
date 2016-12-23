@@ -185,3 +185,6 @@ au BufNewFile,BufRead COMMIT_EDITMSG set spell
 
 " don't strip whitespaces for 'git add --patch '
 au BufNewFile,BufRead ADD_EDIT.patch let b:noStripWhitespace=1
+
+" set wrap for the quickfix list
+au FileType qf setlocal wrap
