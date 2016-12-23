@@ -55,6 +55,9 @@ set cursorline
 " Statusline
 set noshowmode
 
+" faster scrolling
+set lazyredraw
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
