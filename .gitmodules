@@ -66,3 +66,9 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/colors/harlequin"]
+	path = .vim/colors/harlequin
+	url = https://github.com/nielsmadan/harlequin.git
+[submodule ".vim/colors/molokai"]
+	path = .vim/colors/molokai
+	url = https://github.com/tomasr/molokai.git
