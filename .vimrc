@@ -148,7 +148,13 @@ let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
 
 " Neomake configuration
-autocmd! BufWritePost,BufEnter * Neomake
+nmap <Leader>m :Neomake<CR>
+let g:neomake_open_list = 2
+let g:neomake_list_height = 7
+let g:neomake_cabal_cabal_buffer_output = 1
+let g:neomake_rust_rustc_buffer_output = 1
+au FileType rust nmap <Leader>M :Neomake! cargo<CR>
+au FileType haskell nmap <Leader>M :Neomake! stack<CR>
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
