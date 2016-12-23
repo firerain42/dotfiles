@@ -16,6 +16,7 @@ source /usr/share/autojump/autojump.zsh &> /dev/null
 # Setup variables
 export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
+export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
 
 # Handle ssh-keys
 eval $(keychain --eval -Q --quiet --noask)
