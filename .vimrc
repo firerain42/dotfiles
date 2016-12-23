@@ -96,6 +96,9 @@ nnoremap <C-s> :w<CR>
 " close all with :Q
 command Q :qa
 
+" Map Ctrl-q to run macro
+nnoremap <C-q> @q
+
 " Map Leader+e go from terminal to normal mode (only nvim)
 if has('nvim')
     tnoremap <Leader>e <C-\><C-n>
