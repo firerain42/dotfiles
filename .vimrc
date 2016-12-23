@@ -154,6 +154,12 @@ autocmd! BufWritePost,BufEnter * Neomake
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
+" EasyTags configuration
+let g:easytags_async = 1
+let g:easytags_events = ['BufWritePost']
+let g:easytags_include_members = 1
+let g:easytags_auto_highlight = 0
+
 " tagbar settings
 nnoremap <silent> <F9> :TagbarOpenAutoClose<CR>
 let g:tagbar_type_haskell = {
