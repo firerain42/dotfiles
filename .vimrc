@@ -104,9 +104,9 @@ if has('nvim')
     tnoremap <Leader>e <C-\><C-n>
 endif
 
-" Highlight the 80 chars margin
+" Highlight the 100 chars margin
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=100
 endif
 
 " Disable code folding
