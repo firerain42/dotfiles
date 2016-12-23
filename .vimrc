@@ -141,6 +141,12 @@ vmap <Leader>a :Tabularize /
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
 
+
+" SuperTab configuration
+let g:SuperTabCrMapping = 1
+let g:SuperTabMappingForward = '<s-tab>'
+let g:SuperTabMappingBackward = '<tab>'
+
 " Neomake configuration
 autocmd! BufWritePost,BufEnter * Neomake
 
