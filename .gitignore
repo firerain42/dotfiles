@@ -1,3 +1,5 @@
 .vim/init.vim
 .vim/spell/*
 .vim/plugged/*
+.vim/bundleBackup/*
+.vim/autoload/plug.vim*
