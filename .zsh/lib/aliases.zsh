@@ -5,3 +5,4 @@ alias -g no='2> /dev/null > /dev/null'
 alias open="xdg-open no"
 alias vim="nocorrect nvim"
 alias tree="nocorrect tree -C"
+alias g="tig status"
