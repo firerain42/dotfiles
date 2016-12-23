@@ -3,16 +3,21 @@ set nocompatible
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
+Plug 'ervandew/supertab'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion-s2)' }
 
+Plug 'xolox/vim-misc', { 'for': ['rust', 'haskell'] }
+Plug 'xolox/vim-easytags', { 'for': ['rust', 'haskell'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
