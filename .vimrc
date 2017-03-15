@@ -51,6 +51,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" Move always one display line
+nnoremap j gj
+nnoremap k gk
+
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
 
