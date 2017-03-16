@@ -16,3 +16,9 @@ ln -s $dotfiles/.vimrc $HOME/.vimrc
 ln -s $dotfiles/.zsh $HOME/.zsh
 ln -s $dotfiles/.zshrc $HOME/.zshrc
 mkdir $HOME/.vimbackup
+
+# NeoVim Init
+mkdir -p ~/.config
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
