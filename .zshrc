@@ -32,3 +32,15 @@ if hash stack 2> /dev/null; then
     autoload -U +X bashcompinit && bashcompinit
     eval "$(stack --bash-completion-script stack)"
 fi
+
+# Add anaconda (de)activate
+if [ -f ~/.local/share/anaconda3/bin/activate ]; then
+    function conda_activate {
+        source ~/.local/share/anaconda3/bin/activate #1
+    }
+
+    function conda_deactivate {
+        source ~/.local/share/anaconda3/bin/deactivate
+    }
+fi
+
