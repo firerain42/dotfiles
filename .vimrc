@@ -46,6 +46,7 @@ set encoding=utf-8
 
 " Whitespace stuff
 set nowrap
+set linebreak
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
