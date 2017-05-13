@@ -3,7 +3,7 @@
 if [ "$#" -ne 1 ]
 then
     dotfiles=$(readlink -f $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))
-else 
+else
     dotfiles=$1
 fi
 
@@ -16,3 +16,10 @@ ln -s $dotfiles/.vimrc $HOME/.vimrc
 ln -s $dotfiles/.zsh $HOME/.zsh
 ln -s $dotfiles/.zshrc $HOME/.zshrc
 mkdir $HOME/.vimbackup
+
+# neovim
+if hash nvim 2> /dev/null; then
+    mkdir -p ~/.config
+    ln -s ~/.vim ~/.config/nvim/
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
+fi
