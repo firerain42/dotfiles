@@ -146,6 +146,8 @@ vmap <Leader>a :Tabularize /
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
 
+" Lightline configuration
+set laststatus=2
 
 " SuperTab configuration
 let g:SuperTabCrMapping = 1
