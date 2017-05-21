@@ -46,6 +46,7 @@ set encoding=utf-8
 
 " Whitespace stuff
 set nowrap
+set linebreak
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -145,6 +146,8 @@ vmap <Leader>a :Tabularize /
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
 
+" Lightline configuration
+set laststatus=2
 
 " SuperTab configuration
 let g:SuperTabCrMapping = 1

@@ -11,17 +11,36 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
 
 # Load autojump
-source /usr/share/autojump/autojump.zsh &> /dev/null
+if hash autojump 2> /dev/null; then
+    source /usr/share/autojump/autojump.zsh
+fi
 
 # Setup variables
 export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
-export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
+if hash rustc 2> /dev/null; then
+    export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
+fi
 
 # Handle ssh-keys
-eval $(keychain --eval -Q --quiet --noask)
+if hash keychain 2> /dev/null; then
+    eval $(keychain --eval -Q --quiet --noask)
+fi
 
 # stack completion
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+if hash stack 2> /dev/null; then
+    autoload -U +X bashcompinit && bashcompinit
+    eval "$(stack --bash-completion-script stack)"
+fi
+
+# Add anaconda (de)activate
+if [ -f ~/.local/share/anaconda3/bin/activate ]; then
+    function conda_activate {
+        source ~/.local/share/anaconda3/bin/activate #1
+    }
+
+    function conda_deactivate {
+        source ~/.local/share/anaconda3/bin/deactivate
+    }
+fi
+
