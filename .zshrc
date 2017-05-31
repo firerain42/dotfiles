@@ -44,3 +44,7 @@ if [ -f ~/.local/share/anaconda3/bin/activate ]; then
     }
 fi
 
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$PATH:$HOME/.cargo/bin/"
+fi
+
