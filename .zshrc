@@ -18,9 +18,6 @@ fi
 # Setup variables
 export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
-if hash rustc 2> /dev/null; then
-    export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
-fi
 
 # Handle ssh-keys
 if hash keychain 2> /dev/null; then
@@ -44,6 +41,7 @@ if [ -f ~/.local/share/anaconda3/bin/activate ]; then
     }
 fi
 
+# Add ranger shortcut
 if hash ranger 2> /dev/null; then
     function rg {
         tempfile="$(mktemp)"
@@ -56,7 +54,11 @@ if hash ranger 2> /dev/null; then
     }
 fi
 
+# Rust
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin/"
+fi
+if hash rustc 2> /dev/null; then
+    export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
 fi
 
