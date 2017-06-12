@@ -44,6 +44,18 @@ if [ -f ~/.local/share/anaconda3/bin/activate ]; then
     }
 fi
 
+if hash ranger 2> /dev/null; then
+    function rg {
+        tempfile="$(mktemp)"
+        /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+    }
+fi
+
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin/"
 fi
