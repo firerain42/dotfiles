@@ -106,6 +106,20 @@ nnoremap <C-s> :w<CR>
 " close all with :Q
 command Q :qa
 
+" Easier window navigation
+if has('nvim')
+    tnoremap <A-a> <C-\><C-n>
+
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
 " Map Ctrl-q to run macro
 nnoremap <C-q> @q
 
