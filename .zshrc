@@ -43,6 +43,13 @@ fi
 
 # Add ranger shortcut
 if hash ranger 2> /dev/null; then
+    function ranger {
+        if [ -z "$RANGER_LEVEL" ]; then
+            /usr/bin/ranger "$@"
+        else
+            exit
+        fi
+    }
     function rg {
         tempfile="$(mktemp)"
         /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
@@ -61,4 +68,3 @@ fi
 if hash rustc 2> /dev/null; then
     export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
 fi
-
