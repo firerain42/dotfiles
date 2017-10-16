@@ -176,6 +176,7 @@ let g:neomake_cabal_cabal_buffer_output = 1
 let g:neomake_rust_rustc_buffer_output = 1
 au FileType rust nmap <Leader>M :Neomake! cargo<CR>
 au FileType haskell nmap <Leader>M :Neomake! stack<CR>
+au FileType tex nmap <Leader>M :Neomake! rubber<CR>
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
