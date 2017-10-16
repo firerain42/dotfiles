@@ -125,7 +125,7 @@ nnoremap <C-q> @q
 
 " Map Leader+e go from terminal to normal mode (only nvim)
 if has('nvim')
-    tnoremap <Leader>e <C-\><C-n>
+    tnoremap <Leader><ESC> <C-\><C-n>
 endif
 
 " Highlight the 100 chars margin
