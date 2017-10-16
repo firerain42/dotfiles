@@ -3,3 +3,5 @@
 .vim/plugged/*
 .vim/bundleBackup/*
 .vim/autoload/plug.vim*
+.vim/.netrwhist
+.vim/bundle/
