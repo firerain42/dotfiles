@@ -237,6 +237,9 @@ let g:tagbar_type_rust = {
 " make uses real tabs
 au FileType make set noexpandtab
 
+" wrap lines
+au FileType text,tex,latex,markdown set wrap
+
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
 
