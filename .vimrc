@@ -9,6 +9,7 @@ Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
+Plug 'osyo-manga/vim-over'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
@@ -167,6 +168,9 @@ set laststatus=2
 let g:SuperTabCrMapping = 1
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
+
+" vim-over configuration
+nmap <Leader>S :OverCommandLine<CR>
 
 " Neomake configuration
 nmap <Leader>m :Neomake<CR>
