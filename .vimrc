@@ -144,9 +144,9 @@ set directory=~/.vimbackup
 set wildignore=*.class,*.jar,*.tar*,*.pdf,*.png,*.jpg,*.jpeg,*.tiff,*.tif
 
 " Simplify clipboard usage
-nnoremap <Leader>p "*p
-vnoremap <Leader>p "*p
-vnoremap <Leader>y "*y
+nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
+vnoremap <Leader>y "+y
 
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 0
