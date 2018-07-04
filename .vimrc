@@ -22,6 +22,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 if has('nvim') && has('python3')
     Plug 'Shougo/deoplete.nvim'
@@ -176,6 +177,7 @@ vmap <Leader>a :Tabularize /
 
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
 " Lightline configuration
 set laststatus=2
