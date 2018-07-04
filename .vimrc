@@ -107,6 +107,13 @@ nnoremap <C-s> :w<CR>
 " close all with :Q
 command Q :qa
 
+" enable @<register> in visual mode
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " Easier window navigation
 if has('nvim')
     tnoremap <A-a> <C-\><C-n>
