@@ -180,9 +180,6 @@ let g:neomake_cabal_cabal_buffer_output = 1
 let g:neomake_rust_rustc_buffer_output = 1
 au FileType rust nmap <Leader>M :Neomake! cargo<CR>
 au FileType haskell nmap <Leader>M :Neomake! stack<CR>
-function! neomake#makers#ft#tex#EnabledMakers() abort
-    return ['chktex', 'lacheck', 'rubberinfo', 'proselint', 'rubber']
-endfunction
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
