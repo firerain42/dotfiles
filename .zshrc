@@ -45,20 +45,19 @@ fi
 if type ranger &> /dev/null; then
     function rg {
         if [ -z "$RANGER_LEVEL" ]; then
-            /usr/bin/ranger "$@"
+            tempfile="$(mktemp)"
+            /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+            test -f "$tempfile" &&
+            if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+                cd -- "$(cat "$tempfile")"
+            fi
+            rm -f -- "$tempfile"
         else
             exit
         fi
     }
-    function rg {
-        tempfile="$(mktemp)"
-        /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-        test -f "$tempfile" &&
-        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-            cd -- "$(cat "$tempfile")"
-        fi
-        rm -f -- "$tempfile"
-    }
+else
+    echo no ranger
 fi
 
 # Rust
