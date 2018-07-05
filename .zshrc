@@ -11,7 +11,7 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
 
 # Load autojump
-if hash autojump 2> /dev/null; then
+if type autojump &> /dev/null; then
     source /usr/share/autojump/autojump.zsh
 fi
 
@@ -20,12 +20,12 @@ export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
 
 # Handle ssh-keys
-if hash keychain 2> /dev/null; then
+if type keychain &> /dev/null; then
     eval $(keychain --eval -Q --quiet --noask)
 fi
 
 # stack completion
-if hash stack 2> /dev/null; then
+if type stack &> /dev/null; then
     autoload -U +X bashcompinit && bashcompinit
     eval "$(stack --bash-completion-script stack)"
 fi
@@ -42,8 +42,8 @@ if [ -f ~/.local/share/anaconda3/bin/activate ]; then
 fi
 
 # Add ranger shortcut
-if hash ranger 2> /dev/null; then
-    function ranger {
+if type ranger &> /dev/null; then
+    function rg {
         if [ -z "$RANGER_LEVEL" ]; then
             /usr/bin/ranger "$@"
         else
@@ -65,6 +65,6 @@ fi
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin/"
 fi
-if hash rustc 2> /dev/null; then
+if type rustc &> /dev/null; then
     export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
 fi
