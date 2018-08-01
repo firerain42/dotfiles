@@ -15,6 +15,9 @@ if type autojump &> /dev/null; then
     source /usr/share/autojump/autojump.zsh
 fi
 
+# Load z
+. $ZSH/plugins/z/z.sh
+
 # Setup variables
 export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
