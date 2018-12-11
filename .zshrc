@@ -10,14 +10,6 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 # Load additional plugins
 source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
 
-# Load autojump
-if type autojump &> /dev/null; then
-    source /usr/share/autojump/autojump.zsh
-fi
-
-# Load z
-. $ZSH/plugins/z/z.sh
-
 # Setup variables
 export EDITOR=vim
 export PATH="$PATH:$HOME/.local/bin/"
