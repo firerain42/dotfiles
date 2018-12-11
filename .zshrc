@@ -62,3 +62,13 @@ fi
 if type rustc &> /dev/null; then
     export RUST_SRC_PATH=$(rustup which rustc | xargs dirname)/../lib/rustlib/src/rust/src/
 fi
+
+# fzf
+if type fzf &> /dev/null; then
+    fd() {
+      local dir
+      dir=$(find ${1:-.} -path '*/\.*' -prune \
+                      -o -type d -print 2> /dev/null | fzf +m) &&
+      cd "$dir"
+    }
+fi
