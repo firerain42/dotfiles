@@ -20,7 +20,6 @@ Plug 'xolox/vim-easytags', { 'for': ['rust', 'haskell'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
