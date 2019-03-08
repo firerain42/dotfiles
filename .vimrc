@@ -4,6 +4,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
