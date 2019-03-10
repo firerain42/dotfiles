@@ -22,6 +22,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'JuliaEditorSupport/julia-vim'
 
 if has('nvim') && has('python3')
     Plug 'Shougo/deoplete.nvim'
