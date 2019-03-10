@@ -72,3 +72,11 @@ if type fzf &> /dev/null; then
       cd "$dir"
     }
 fi
+
+# Change directory using fzf
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
