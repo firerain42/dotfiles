@@ -13,7 +13,6 @@ Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 Plug 'osyo-manga/vim-over'
 
-
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion-s2)' }
@@ -25,6 +24,8 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'JuliaEditorSupport/julia-vim'
 
 if has('nvim') && has('python3')
     Plug 'Shougo/deoplete.nvim'
@@ -180,6 +181,7 @@ vmap <Leader>a :Tabularize /
 
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
 " Lightline configuration
 set laststatus=2
