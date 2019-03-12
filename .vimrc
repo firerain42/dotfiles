@@ -5,12 +5,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 Plug 'osyo-manga/vim-over'
+
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
@@ -22,6 +24,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'jceb/vim-orgmode', { 'for': 'org' }
 
 if has('nvim') && has('python3')
     Plug 'Shougo/deoplete.nvim'
