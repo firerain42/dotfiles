@@ -98,7 +98,8 @@ set incsearch
 set hlsearch
 
 " Map Leader
-let mapleader = '-'
+let mapleader = ' '
+let maplocalleader = '-'
 
 " Map Ctrl+l to clear highlighted searches
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
