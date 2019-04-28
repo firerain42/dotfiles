@@ -8,5 +8,5 @@ alias tree="nocorrect tree -C"
 alias g="tig status"
 
 if type stack &> /dev/null; then
-    alias ghci="stack ghci --package classy-prelude"
+    alias ghci="stack ghci --package classy-prelude --ghc-options -XNoImplicitPrelude --main-is ClassyPrelude"
 fi
