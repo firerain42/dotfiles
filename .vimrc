@@ -59,6 +59,8 @@ set expandtab
 " Move always one display line
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
