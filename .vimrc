@@ -113,6 +113,9 @@ noremap <C-s> :w<CR>
 " close all with :Q
 command Q :qa
 
+" delete without overwriting the register
+noremap s "_d
+
 " enable @<register> in visual mode
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
