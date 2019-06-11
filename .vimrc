@@ -11,7 +11,6 @@ Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
-Plug 'osyo-manga/vim-over'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
@@ -153,6 +152,9 @@ endif
 " Highlight the 100 chars margin
 if exists('+colorcolumn')
     set colorcolumn=100
+endif
+if has('nvim')
+    set inccommand=nosplit
 endif
 
 " Disable code folding
