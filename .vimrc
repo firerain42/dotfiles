@@ -105,7 +105,7 @@ let maplocalleader = '-'
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Map Ctrl-s to save
-inoremap <C-s> <ESC>:w<CR>i
+inoremap <C-s> <C-g>u<ESC>:w<CR>a
 nnoremap <C-s> :w<CR>
 
 " close all with :Q
