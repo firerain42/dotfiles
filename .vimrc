@@ -281,3 +281,5 @@ au BufNewFile,BufRead ADD_EDIT.patch let b:noStripWhitespace=1
 
 " set wrap for the quickfix list
 au FileType qf setlocal wrap
+
+au FileType org set textwidth=0 | set shiftwidth=2 | set tabstop=2 | set softtabstop=2 | set nowrap
