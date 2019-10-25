@@ -11,6 +11,13 @@ Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
@@ -25,10 +32,6 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'JuliaEditorSupport/julia-vim'
-
-if has('nvim') && has('python3')
-    Plug 'Shougo/deoplete.nvim'
-end
 call plug#end()
 
 
