@@ -282,3 +282,8 @@ au BufNewFile,BufRead ADD_EDIT.patch let b:noStripWhitespace=1
 
 " set wrap for the quickfix list
 au FileType qf setlocal wrap
+
+" disable spell in terminal
+if has('nvim')
+    au TermOpen * setlocal nospell
+endif
