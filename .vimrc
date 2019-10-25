@@ -60,8 +60,10 @@ set softtabstop=4
 set expandtab
 
 " Move always one display line
-noremap j gj
-noremap k gk
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Show trailing spaces and highlight hard tabs
 set list listchars=tab:»·,trail:·
@@ -108,11 +110,14 @@ let maplocalleader = '-'
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Map Ctrl-s to save
-inoremap <C-s> <ESC>:w<CR>i
-nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-g>u<ESC>:w<CR>a
+noremap <C-s> :w<CR>
 
 " close all with :Q
 command Q :qa
+
+" delete without overwriting the register
+noremap s "_d
 
 " enable @<register> in visual mode
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -135,14 +140,14 @@ if has('nvim')
     tnoremap <A-Up>    <C-\><C-n><C-w>k
     tnoremap <A-Right> <C-\><C-n><C-w>l
 endif
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-nnoremap <A-Left>  <C-w>h
-nnoremap <A-Down>  <C-w>j
-nnoremap <A-Up>    <C-w>k
-nnoremap <A-Right> <C-w>l
+noremap <A-h> <C-w>h
+noremap <A-j> <C-w>j
+noremap <A-k> <C-w>k
+noremap <A-l> <C-w>l
+noremap <A-Left> <C-\><C-n><C-w>h
+noremap <A-Down> <C-\><C-n><C-w>j
+noremap <A-Up> <C-\><C-n><C-w>k
+noremap <A-Right> <C-\><C-n><C-w>l
 
 " Map Ctrl-q to run macro
 nnoremap <C-q> @q
@@ -171,9 +176,9 @@ set directory=~/.vimbackup
 set wildignore=*.class,*.jar,*.tar*,*.pdf,*.png,*.jpg,*.jpeg,*.tiff,*.tif
 
 " Simplify clipboard usage
-nnoremap <Leader>p "+p
-vnoremap <Leader>p "+p
-vnoremap <Leader>y "+y
+noremap <Leader>P "+P
+noremap <Leader>p "+p
+noremap <Leader>y "+y
 
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 0
@@ -195,9 +200,6 @@ set laststatus=2
 let g:SuperTabCrMapping = 1
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
-
-" vim-over configuration
-nmap <Leader>S :OverCommandLine<CR>
 
 " Neomake configuration
 nmap <Leader>m :Neomake<CR>
@@ -282,6 +284,9 @@ au BufNewFile,BufRead ADD_EDIT.patch let b:noStripWhitespace=1
 
 " set wrap for the quickfix list
 au FileType qf setlocal wrap
+
+" setup org-mode
+au FileType org set textwidth=0 | set shiftwidth=2 | set tabstop=2 | set softtabstop=2 | set nowrap
 
 " disable spell in terminal
 if has('nvim')
