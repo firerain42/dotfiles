@@ -114,5 +114,5 @@ map yn ${{echo -n $(dirname $f) | xclip -selection clipboard}}
 map yp ${{echo -n $f | xclip -selection clipboard}}
 map yn ${{echo -n $(basename $f) | xclip -selection clipboard}}
 
-# F5 for redraw
-map <f-5> redraw
+# R for reload
+map R reload
