@@ -15,25 +15,25 @@ git submodule update
 mkdir -p $HOME/.config
 
 # zsh
-ln -si $dotfiles/zsh/zsh $HOME/.zsh
-ln -si $dotfiles/zsh/zshrc $HOME/.zshrc
-ln -si $dotfiles/zsh/zlogin $HOME/.zlogin
+ln -sfT $dotfiles/zsh/zsh $HOME/.zsh
+ln -sfT $dotfiles/zsh/zshrc $HOME/.zshrc
+ln -sfT $dotfiles/zsh/zlogin $HOME/.zlogin
 
 
 # vim
-ln -si $dotfiles/vim/vim $HOME/.vim
-ln -si $dotfiles/vim/vimrc $HOME/.vimrc
+ln -sfT $dotfiles/vim/vim $HOME/.vim
+ln -sfT $dotfiles/vim/vimrc $HOME/.vimrc
 mkdir -p $HOME/.vimbackup
 
 # neovim
 if hash nvim 2> /dev/null; then
-    ln -si $HOME/.vim $HOME/.config/nvim/
-    ln -si $HOME/.vimrc $HOME/.config/nvim/init.vim
+    ln -sfT $HOME/.vim $HOME/.config/nvim
+    ln -sfT $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
 
 # tmux
-ln -si $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+ln -sfT $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 # lf
-ln -si $dotfiles/lf $HOME/.config/lf
+ln -sfT $dotfiles/lf $HOME/.config/lf
 
