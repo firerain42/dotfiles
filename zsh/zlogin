@@ -1,0 +1,12 @@
+# This script is always sourced
+
+# Setup variables
+if type nvim &> /dev/null; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+export PAGER=less
+export PATH="$PATH:$HOME/.local/bin/"
+export JAVA_HOME=/usr/lib/jvm/default-java/
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1

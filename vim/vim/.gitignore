@@ -1,0 +1,7 @@
+init.vim
+spell/*
+plugged/*
+bundleBackup/*
+autoload/plug.vim*
+.netrwhist
+bundle/

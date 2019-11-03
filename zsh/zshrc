@@ -1,3 +1,5 @@
+# This script is sourced on every interactive login.
+
 export ZSH=~/.zsh
 
 # Load and run compinit
@@ -9,10 +11,6 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 
 # Load additional plugins
 source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
-
-# Setup variables
-export EDITOR=vim
-export PATH="$PATH:$HOME/.local/bin/"
 
 # Handle ssh-keys
 if type keychain &> /dev/null; then
@@ -44,6 +42,21 @@ else
     echo no ranger
 fi
 
+# Add lf shortcut
+if type lf &> /dev/null; then
+    function lf {
+        tempfile="$(mktemp)"
+        ~/.local/bin/lf -last-dir-path="$tempfile"
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+    }
+else
+    echo no lf
+fi
+
 # Rust
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin/"
@@ -69,3 +82,4 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
