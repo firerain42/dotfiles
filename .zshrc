@@ -25,17 +25,6 @@ if type stack &> /dev/null; then
     eval "$(stack --bash-completion-script stack)"
 fi
 
-# Add anaconda (de)activate
-if [ -f ~/.local/share/anaconda3/bin/activate ]; then
-    function conda_activate {
-        source ~/.local/share/anaconda3/bin/activate #1
-    }
-
-    function conda_deactivate {
-        source ~/.local/share/anaconda3/bin/deactivate
-    }
-fi
-
 # Add ranger shortcut
 if type ranger &> /dev/null; then
     function rg {
