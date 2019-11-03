@@ -1,3 +1,5 @@
+# This script is sourced on every interactive login.
+
 export ZSH=~/.zsh
 
 # Load and run compinit
@@ -10,10 +12,6 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 # Load additional plugins
 source $ZSH/plugins/zsh-256color/zsh-256color.plugin.zsh
 
-# Setup variables
-export EDITOR=vim
-export PATH="$PATH:$HOME/.local/bin/"
-
 # Handle ssh-keys
 if type keychain &> /dev/null; then
     eval $(keychain --eval -Q --quiet --noask)
@@ -25,14 +23,10 @@ if type stack &> /dev/null; then
     eval "$(stack --bash-completion-script stack)"
 fi
 
-# Add anaconda (de)activate
-if [ -f ~/.local/share/anaconda3/bin/activate ]; then
+# Add conda (de)activate
+if [ -f ~/.local/share/miniconda3/bin/activate ]; then
     function conda_activate {
-        source ~/.local/share/anaconda3/bin/activate #1
-    }
-
-    function conda_deactivate {
-        source ~/.local/share/anaconda3/bin/deactivate
+# source ~/.local/share/miniconda3/bin/activate #1  # commented out by conda initialize  # commented out by conda initialize
     }
 fi
 
@@ -53,6 +47,21 @@ if type ranger &> /dev/null; then
     }
 else
     echo no ranger
+fi
+#
+# Add lf shortcut
+if type lf &> /dev/null; then
+    function lf {
+        tempfile="$(mktemp)"
+        ~/.local/bin/lf -last-dir-path="$tempfile"
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+    }
+else
+    echo no lf
 fi
 
 # Rust
@@ -80,3 +89,4 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+

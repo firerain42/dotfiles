@@ -11,15 +11,29 @@ cd $dotfiles
 git submodule init
 git submodule update
 
-ln -s $dotfiles/.vim $HOME/.vim
-ln -s $dotfiles/.vimrc $HOME/.vimrc
-ln -s $dotfiles/.zsh $HOME/.zsh
-ln -s $dotfiles/.zshrc $HOME/.zshrc
-mkdir $HOME/.vimbackup
+
+mkdir -p $HOME/.config
+
+# zsh
+ln -si $dotfiles/zsh/zsh $HOME/.zsh
+ln -si $dotfiles/zsh/zshrc $HOME/.zshrc
+ln -si $dotfiles/zsh/zlogin $HOME/.zlogin
+
+
+# vim
+ln -si $dotfiles/vim/vim $HOME/.vim
+ln -si $dotfiles/vim/vimrc $HOME/.vimrc
+mkdir -p $HOME/.vimbackup
 
 # neovim
 if hash nvim 2> /dev/null; then
-    mkdir -p ~/.config
-    ln -s ~/.vim ~/.config/nvim/
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
+    ln -si $HOME/.vim $HOME/.config/nvim/
+    ln -si $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
+
+# tmux
+ln -si $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+# lf
+ln -si $dotfiles/lf $HOME/.config/lf
+

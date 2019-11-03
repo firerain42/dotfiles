@@ -8,7 +8,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 if has('nvim')
