@@ -56,7 +56,7 @@ cmd open ${{
 cmd delete ${{
     set -f
     printf "$f\n"
-    printf "delete? [y]/n"
+    printf "delete? [y]/n "
     read ans
     if [ $ans = "y" ] || [ -z $ans ]; then
         rm -rf $f
