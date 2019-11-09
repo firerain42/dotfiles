@@ -44,9 +44,11 @@ fi
 
 # Add lf shortcut
 if type lf &> /dev/null; then
+    lf_path=$(which lf)
+
     function lf {
         tempfile="$(mktemp)"
-        ~/.local/bin/lf -last-dir-path="$tempfile"
+        "$lf_path" -last-dir-path="$tempfile"
         test -f "$tempfile" &&
         if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
             cd -- "$(cat "$tempfile")"
