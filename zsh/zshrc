@@ -23,13 +23,6 @@ if type stack &> /dev/null; then
     eval "$(stack --bash-completion-script stack)"
 fi
 
-# Add conda (de)activate
-if [ -f ~/.local/share/miniconda3/bin/activate ]; then
-    function conda_activate {
-# source ~/.local/share/miniconda3/bin/activate #1  # commented out by conda initialize  # commented out by conda initialize
-    }
-fi
-
 # Add ranger shortcut
 if type ranger &> /dev/null; then
     function rg {
@@ -48,12 +41,14 @@ if type ranger &> /dev/null; then
 else
     echo no ranger
 fi
-#
+
 # Add lf shortcut
 if type lf &> /dev/null; then
+    lf_path=$(which lf)
+
     function lf {
         tempfile="$(mktemp)"
-        ~/.local/bin/lf -last-dir-path="$tempfile"
+        "$lf_path" -last-dir-path="$tempfile"
         test -f "$tempfile" &&
         if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
             cd -- "$(cat "$tempfile")"
