@@ -58,7 +58,7 @@ cmd delete ${{
     printf "$f\n"
     printf "delete? [y]/n "
     read ans
-    if [ $ans = "y" ] || [ -z $ans ]; then
+    if [ "$ans" = "y" ] || [ -z $ans ]; then
         rm -rf $f
     fi
 }}
