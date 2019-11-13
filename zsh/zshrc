@@ -90,3 +90,8 @@ fd() {
   cd "$dir"
 }
 
+
+# Source config for this system last
+if [ -f "$ZSH/local.zsh" ]; then
+    source "$ZSH/local.zsh"
+fi
