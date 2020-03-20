@@ -214,6 +214,7 @@ let g:neomake_open_list = 2
 let g:neomake_list_height = 7
 let g:neomake_cabal_cabal_buffer_output = 1
 let g:neomake_rust_rustc_buffer_output = 1
+let g:neomake_tex_enabled_makers = ['rubber']
 au FileType rust nmap <Leader>M :Neomake! cargo<CR>
 au FileType haskell nmap <Leader>M :Neomake! stack<CR>
 
