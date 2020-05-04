@@ -17,7 +17,7 @@ mkdir -p $HOME/.config
 # zsh
 ln -sfT $dotfiles/zsh/zsh $HOME/.zsh
 ln -sfT $dotfiles/zsh/zshrc $HOME/.zshrc
-ln -sfT $dotfiles/zsh/zlogin $HOME/.zlogin
+ln -sfT $dotfiles/zsh/zshenv $HOME/.zshenv
 
 
 # vim

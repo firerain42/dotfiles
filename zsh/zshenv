@@ -1,4 +1,9 @@
 # This script is always sourced
+#
+
+# Setup path
+export PATH="$PATH:$HOME/.local/bin/:$HOME/.cargo/bin"
+
 
 # Setup variables
 if type nvim &> /dev/null; then
@@ -7,6 +12,6 @@ else
     export EDITOR=vim
 fi
 export PAGER=less
-export PATH="$PATH:$HOME/.local/bin/"
 export JAVA_HOME=/usr/lib/jvm/default-java/
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+export R_LIBS_USER=~/.R/library
