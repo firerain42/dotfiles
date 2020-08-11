@@ -37,3 +37,6 @@ ln -sfT $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 # lf
 ln -sfT $dotfiles/lf $HOME/.config/lf
 
+# xonsh
+ln -sfT $dotfiles/xonsh/xonshrc $HOME/.xonshrc
+
