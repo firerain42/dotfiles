@@ -183,7 +183,9 @@ set wildignore=*.class,*.jar,*.tar*,*.pdf,*.png,*.jpg,*.jpeg,*.tiff,*.tif
 " Simplify clipboard usage
 noremap <Leader>P "+P
 noremap <Leader>p "+p
-noremap <Leader>y "+y
+noremap <LocalLeader>P :put =system('tmux show-buffer')
+noremap <LocalLeader>p "+p
+noremap <silent> <Leader>y "+y <bar> :call system("tmux set-buffer", getreg("@+"))<CR>
 
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 0
