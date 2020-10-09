@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+
+import sys
+import shutil
+import os
+import subprocess
+import tempfile
+import textwrap
+import argparse
+from pathlib import Path
+
+
+
+def main():
+    parser = argparse.ArgumentParser(description=textwrap.dedent('''
+        Editing a file and save the diff as patch file.
+        '''))
+    parser.add_argument('--editor', '-e', type=str, default=None,
+            help="Program which is used to edit the shell script. [default: $EDITOR]")
+    parser.add_argument('--no_edit_inplace', action='store_true',
+            help="If specified, the temporary file will be edited leaving the original file untouched.")
+    parser.add_argument('patch_file', type=Path, help="Path of the output patch file")
+    parser.add_argument('file', type=Path, help="Path of the input file")
+
+    args = parser.parse_args()
+
+    if args.editor is None:
+        args.editor = os.getenv('EDITOR', 'vim')
+
+    in_file_path = args.file
+
+    # Prepare file which will be edited
+    (_fd, tmp_file_path) = tempfile.mkstemp(suffix=in_file_path.suffix)
+    tmp_file_path = Path(tmp_file_path)
+    shutil.copyfile(in_file_path, tmp_file_path)
+
+    # Edit file
+    if args.no_edit_inplace:
+        subprocess.call([args.editor, str(tmp_file_path)])
+    else:
+        subprocess.call([args.editor, str(in_file_path)])
+
+    # Create patch
+    if args.no_edit_inplace:
+        diff_out = subprocess.run(["diff", "-Na", "-u0", str(in_file_path), str(tmp_file_path)], stdout=subprocess.PIPE, encoding='utf-8')
+    else:
+        diff_out = subprocess.run(["diff", "-Na", "-u0", str(tmp_file_path)], str(in_file_path), stdout=subprocess.PIPE, encoding='utf-8')
+    assert diff_out.returncode in [0, 1], "exitcode of `diff` must be either 0 (no differences) or 1 (found differences)"
+
+    # Write patch file
+    patch = diff_out.stdout
+    args.patch_file.write_text(patch)
+
+    # Cleanup
+    tmp_file_path.unlink()
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()

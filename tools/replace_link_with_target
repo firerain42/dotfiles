@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Replaces a symbolic link with a copy of the target file
+
+
+link_path=$1
+
+
+if [ -L "$link_path" ]; then
+    target_path=$(readlink "$link_path")
+    cp --remove-destination "$target_path" "$link_path"
+else
+    echo no sym link
+fi
+

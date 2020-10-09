@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dir_name=$(date -Ins | sed -e 's/+/Z+/' -e 's/://g' -e 's/,/./g')
+mkdir $dir_name
+

@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+
+import argparse
+from pathlib import Path
+import subprocess as sp
+import sys, os
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Bulk edit multiple files')
+    parser.add_argument('--diff_tool', default='vimdiff', help='Diff tool [default="vimdiff"]')
+    parser.add_argument('--editor', default=None, help='Diff tool')
+    parser.add_argument('-b', '--base_file', type=Path,
+            help='Base file, which is used to diff against the others. If not specified an '
+            'arbitrary EDIT_FILE is used.')
+    parser.add_argument('--no_ask', action='store_true',
+            help='If given, no questions are asked whether before editing a file')
+    parser.add_argument('--no_edit_base_file', action='store_true',
+            help='If given, the editor is not opened with the base file befor editing the '
+            'other files')
+    parser.add_argument('-g', '--glob', action='store_true',
+            help='If given, EDIT_FILEs are interpreted as globs')
+    parser.add_argument('edit_files', nargs='+', metavar='EDIT_FILE',
+            help='If given, EDIT_FIlEs are interpreted as globs')
+
+    cmd_args = parser.parse_args()
+
+    edit_file_paths = sorted(set(get_edit_files(cmd_args)))
+
+    if len(edit_file_paths) == 0:
+        print('Error: No edit files found.', file=sys.stderr)
+        return
+    elif len(edit_file_paths) == 1:
+        print(f'Error: Only one edit file found {edit_file_paths[0]}', file=sys.stderr)
+        return
+
+    if cmd_args.base_file is not None:
+        base_file_path = cmd_args.base_file.resolve(strict=True)
+    else:
+        base_file_path = edit_file_paths.pop()
+
+    run_editor(cmd_args, base_file_path)
+
+    for edit_file_path in edit_file_paths:
+        # ask user whether to edit the current file
+        if not cmd_args.no_ask:
+            answer = ask_to_edit_file(edit_file_path)
+        else:
+            answer = 'edit'
+
+        if answer == 'quit':
+            return
+
+        if answer == 'edit':
+            run_difftool(cmd_args, base_file_path, edit_file_path)
+
+def ask_to_edit_file(edit_file_path):
+    while True:
+        orig_answer = input(f"Edit '{edit_file_path}'? [y]/n/q: ")
+
+        answer = orig_answer.strip().lower()
+        if answer == 'y' or answer == '':
+            return 'edit'
+        elif answer == 'n':
+            return 'skip'
+        elif answer == 'q':
+            return 'quit'
+        else:
+            print(f"Did not understand answer '{orig_answer}'. Only 'y', 'n' or 'q' are allowed.", file=sys.stderr)
+
+def run_difftool(cmd_args, base_file_path, edit_file_path):
+    diff_tool = cmd_args.diff_tool
+
+    sp.run([diff_tool, base_file_path, edit_file_path], check=True)
+
+
+def run_editor(cmd_args, base_file):
+    if cmd_args.no_edit_base_file:
+        return
+
+    if cmd_args.editor is not None:
+        editor = cmd_args.editor
+    else:
+        editor = os.getenv('EDITOR', default='vim')
+    sp.run([editor, base_file], check=True)
+
+def get_edit_files(cmd_args):
+    cwd = Path().resolve(strict=True)
+
+    for edit_file in cmd_args.edit_files:
+        if cmd_args.glob:
+            yield from (p.resolve(strict=True) for p in cwd.glob(edit_file))
+        else:
+            edit_file_abs = (cwd / edit_file).absolute()
+            if edit_file_abs.exists():
+                yield edit_file_abs
+            else:
+                print(f"Warning: File does not exist '{edit_file_abs}'", file=sys.stderr)
+
+
+
+if __name__ == '__main__':
+    main()
