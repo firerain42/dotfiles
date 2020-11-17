@@ -1,5 +1,14 @@
 #!/bin/sh
 
+if [ -z "$1" ]; then
+    base_dir=$(realpath .)
+else
+    base_dir=$(realpath "$1")
+fi
+
+
 dir_name=$(date -Ins | sed -e 's/+/Z+/' -e 's/://g' -e 's/,/./g')
-mkdir $dir_name
+mkdir "$base_dir/$dir_name"
+echo "$base_dir/$dir_name"
+
 
