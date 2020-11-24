@@ -26,9 +26,6 @@ set scrolloff 10
 # activate incremental search
 set incsearch
 
-# 256 colors
-set color256
-
 # use enter for shell commands
 map <enter> open
 
