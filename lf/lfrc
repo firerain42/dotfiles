@@ -149,11 +149,26 @@ map gm cd /mnt
 map gp cd ~/Projects
 
 # make y behave more like ranger
+cmd yank-filename ${{
+    clip_content="$(echo -n $(basename $f))"
+    tmux set-buffer "$clip_content"
+    echo "$clip_content" | xclip -selection clipboard 2> /dev/null
+}}
+cmd yank-filepath ${{
+    clip_content="$(echo -n $f)"
+    tmux set-buffer "$clip_content"
+    echo "$clip_content" | xclip -selection clipboard 2> /dev/null
+}}
+cmd yank-parentpath ${{
+    clip_content="$(echo -n $(dirname  $f))"
+    tmux set-buffer "$clip_content"
+    echo "$clip_content" | xclip -selection clipboard 2> /dev/null
+}}
 map y
 map yy copy
-map yn ${{echo -n $(dirname $f) | xclip -selection clipboard}}
-map yp ${{echo -n $f | xclip -selection clipboard}}
-map yn ${{echo -n $(basename $f) | xclip -selection clipboard}}
+map yn yank-filename
+map yp yank-filepath
+map yP yank-parentpath
 
 # R for reload
 map R reload
