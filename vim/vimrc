@@ -12,6 +12,7 @@ Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
+Plug 'easymotion/vim-easymotion'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -22,7 +23,6 @@ endif
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
-Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion-s2)' }
 
 Plug 'xolox/vim-misc', { 'for': ['rust', 'haskell'] }
 Plug 'xolox/vim-easytags', { 'for': ['rust', 'haskell'] }
@@ -188,7 +188,7 @@ noremap <LocalLeader>p "+p
 noremap <silent> <Leader>y "+y <bar> :call system("tmux set-buffer", getreg("@+"))<CR>
 
 " EasyMotion configuration
-let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-s2)
 
