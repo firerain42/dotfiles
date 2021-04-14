@@ -9,7 +9,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'vim-scripts/utl.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 Plug 'easymotion/vim-easymotion'
@@ -20,6 +19,10 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+" Plug 'neovim/nvim-lspconfig'  " wait for nvim 0.5
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
@@ -27,7 +30,6 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'xolox/vim-misc', { 'for': ['rust', 'haskell'] }
 Plug 'xolox/vim-easytags', { 'for': ['rust', 'haskell'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
@@ -207,6 +209,17 @@ set laststatus=2
 let g:SuperTabCrMapping = 1
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
+
+" neosnippet configuration
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " Neomake configuration
 nmap <Leader>m :Neomake<CR>
