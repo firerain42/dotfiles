@@ -9,7 +9,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'vim-scripts/utl.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
-Plug 'neomake/neomake'
 Plug 'ervandew/supertab'
 Plug 'easymotion/vim-easymotion'
 if has('nvim')
@@ -215,21 +214,6 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" Neomake configuration
-nmap <Leader>m :Neomake<CR>
-let g:neomake_open_list = 2
-let g:neomake_list_height = 7
-let g:neomake_cabal_cabal_buffer_output = 1
-let g:neomake_rust_rustc_buffer_output = 1
-let g:neomake_tex_enabled_makers = ['rubber']
-au FileType rust nmap <Leader>M :Neomake! cargo<CR>
-au FileType haskell nmap <Leader>M :Neomake! stack<CR>
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
