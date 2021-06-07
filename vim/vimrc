@@ -31,11 +31,9 @@ Plug 'xolox/vim-misc', { 'for': ['rust', 'haskell'] }
 Plug 'xolox/vim-easytags', { 'for': ['rust', 'haskell'] }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
-Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 
