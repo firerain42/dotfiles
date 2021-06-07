@@ -21,6 +21,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'dense-analysis/ale'
 " Plug 'neovim/nvim-lspconfig'  " wait for nvim 0.5
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -188,6 +189,10 @@ noremap <LocalLeader>P :put =system('tmux show-buffer')
 noremap <LocalLeader>p "+p
 noremap <silent> <Leader>y "+y <bar> :call system("tmux set-buffer", getreg("@+"))<CR>
 
+" Language server protocoll
+let g:ale_linters = {'rust': ['analyzer']}
+
+
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_smartcase = 1
@@ -198,8 +203,12 @@ nmap <Leader>a :Tabularize /
 vmap <Leader>a :Tabularize /
 
 " deoplete configuration
-let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
+" define completetion sources
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'neosnippet'],
+\ 'python': ['deoplete-jedi', 'neosnippet'],
+\})
 
 " Lightline configuration
 set laststatus=2
