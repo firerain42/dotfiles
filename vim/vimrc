@@ -286,7 +286,7 @@ au FileType make set noexpandtab
 au FileType text,tex,latex,plaintex,markdown set wrap | set spell
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.json set ft=json | set foldmethod=syntax
 
 " spell check all git commit messages
 au BufNewFile,BufRead COMMIT_EDITMSG set spell
