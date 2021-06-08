@@ -18,5 +18,12 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 # Disable in /media and /mnt where the filesystems might be slow
 zstyle ':vcs_info:*' disable-patterns "/(media|mnt)/*"
 
-precmd () { vcs_info }
+# Disable if $ZSH_N0_VCS is set
+precmd () {
+    if [ -z "$ZSH_N0_VCS" ]; then
+        vcs_info
+    else
+        vcs_info_msg_0_=''
+    fi
+}
 PS1='%{$fg_bold[white]%}[%(!.%{$fg_bold[red]%}%n.%{$fg_bold[blue]%}%n)%{$fg_bold[white]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%}${vcs_info_msg_0_}%(?.. %{$fg_bold[red]%}(%?%)%{$fg_bold[white]%})%{$fg_bold[white]%}]%{$reset_color%} '
