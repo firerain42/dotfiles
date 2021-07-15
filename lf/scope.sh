@@ -82,7 +82,7 @@ handle_mime() {
             exit 1;;
 
         # Text
-        text/* | */xml)
+        text/* | */xml | */csv)
             # Syntax highlight
             if [ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]; then
                 head -n 100 "${FILE_PATH}"
